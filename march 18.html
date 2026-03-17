@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Monthsary 💌</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffdde1;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* Envelope */
+.envelope {
+    width: 200px;
+    height: 150px;
+    background: #ff4d6d;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: -75px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 75px solid #ff4d6d;
+}
+
+/* Letter */
+.letter {
+    position: absolute;
+    width: 300px;
+    max-height: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transform: scale(0);
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.open .letter {
+    transform: scale(1);
+}
+
+.open .envelope {
+    transform: translateY(120px);
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 5s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {transform: translateY(0) rotate(45deg); opacity: 1;}
+    100% {transform: translateY(-800px) rotate(45deg); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <div class="envelope" onclick="openLetter()"></div>
+
+    <div class="letter">
+        <h3>💌 My Dearest Babyyy Liyann 💌</h3>
+        <p style="white-space: pre-line; font-size:14px;">
+my dearest babyyy liyann,
+
+happy 1st monthsary sa atin, mababyy 😽😽
+
+kahit first monthsary pa lang natin officially, alam ko sa sarili ko na parang ang tagal na nating magkasama,
+7 months na puno ng memories na hinding hindi ko makakalimutan.
+
+hindi man agad naging tayo, pero sa loob ng 7 months na yon, mas nakilala kita, mas minahal kita, at mas narealize ko kung gaano ako kaswerte na ikaw yung kasama ko ngayon. you’ve been my happiness, my comfort, and my safe place even before this became official 💗
+
+thank you for staying, for loving me, and for choosing me. sobrang na appreciate ko lahat yung time mo, effort mo, at yung pagmamahal na pinaparamdam mo sa akin everyday babyy
+
+now that we’re officially together, mas lalo kong pinapangako na iingatan kita, mamahalin kita, at pipiliin kita everyday. this is just the beginning of our story, and i’m excited sa mas marami pang monthsaries at anniversaries na darating sa atin babyy ko
+
+happy 1st monthsary, babyy ko 😽  
+iloveyousomuchhh, more than words can explain ❤️
+        </p>
+    </div>
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("container").classList.add("open");
+}
+
+/* Floating hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
